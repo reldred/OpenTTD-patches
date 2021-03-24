@@ -362,7 +362,6 @@ struct GameCreationSettings {
 	byte   oil_refinery_limit;               ///< distance oil refineries allowed from map edge
 	byte   snow_line_height;                 ///< the configured snow line height
 	byte   rainforest_line_height;           ///< the configured rainforest line height
-	uint8  river_tropics_width;              ///< the configured width of tropics around rivers
 	byte   tgen_smoothness;                  ///< how rough is the terrain from 0-3
 	byte   tree_placer;                      ///< the tree placer algorithm
 	byte   heightmap_rotation;               ///< rotation director for the heightmap
@@ -378,6 +377,9 @@ struct GameCreationSettings {
 	byte   amount_of_rivers;                 ///< the amount of rivers
 	bool   rivers_top_of_hill;               ///< do rivers require starting near the tops of hills?
 	uint8  amount_of_rocks;                  ///< the amoutn of rocks
+	uint8  river_tropics_width;              ///< the configured width of tropics around rivers
+	uint8  lake_size;                        ///< how large can lakes get?
+	bool   lakes_allowed_in_deserts;         ///< are lakes allowed in deserts?
 };
 
 /** Settings related to construction in-game */
