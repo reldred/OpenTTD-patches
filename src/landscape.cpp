@@ -1050,6 +1050,7 @@ static bool FindSpring(TileIndex tile, void *user_data)
 
 	/* Are there enough higher tiles to warrant a 'spring'? */
 	uint num = 0;
+
 	for (int dx = -1; dx <= 1; dx++) {
 		for (int dy = -1; dy <= 1; dy++) {
 			TileIndex t = TileAddWrap(tile, dx, dy);
@@ -1058,12 +1059,14 @@ static bool FindSpring(TileIndex tile, void *user_data)
 	}
 
 	if (num < 4) return false;
-
-	/* Are we near the top of a hill? */
-	for (int dx = -16; dx <= 16; dx++) {
-		for (int dy = -16; dy <= 16; dy++) {
-			TileIndex t = TileAddWrap(tile, dx, dy);
-			if (t != INVALID_TILE && GetTileMaxZ(t) > referenceHeight + 2) return false;
+	
+	if (_settings_game.game_creation.rivers_top_of_hill == true) {
+		/* Are we near the top of a hill? */
+		for (int dx = -16; dx <= 16; dx++) {
+			for (int dy = -16; dy <= 16; dy++) {
+				TileIndex t = TileAddWrap(tile, dx, dy);
+				if (t != INVALID_TILE && GetTileMaxZ(t) > referenceHeight + 2) return false;
+			}
 		}
 	}
 
@@ -1088,7 +1091,7 @@ static bool MakeLake(TileIndex tile, void *user_data)
 			MakeRiver(tile, Random());
 			/* Remove desert directly around the river tile. */
 			TileIndex t = tile;
-			CircularTileSearch(&t, RIVER_OFFSET_DESERT_DISTANCE, RiverModifyDesertZone, nullptr);
+			CircularTileSearch(&t, _settings_game.game_creation.river_tropics_width, RiverModifyDesertZone, nullptr);
 			return false;
 		}
 	}
@@ -1160,7 +1163,7 @@ static void River_FoundEndNode(AyStar *aystar, OpenListNode *current)
 		if (!IsWaterTile(tile)) {
 			MakeRiver(tile, Random());
 			/* Remove desert directly around the river tile. */
-			CircularTileSearch(&tile, RIVER_OFFSET_DESERT_DISTANCE, RiverModifyDesertZone, nullptr);
+			CircularTileSearch(&tile, _settings_game.game_creation.river_tropics_width, RiverModifyDesertZone, nullptr);
 		}
 	}
 }
@@ -1272,7 +1275,7 @@ static bool FlowRiver(TileIndex spring, TileIndex begin)
 			end = lakeCenter;
 			MakeRiver(lakeCenter, Random());
 			/* Remove desert directly around the river tile. */
-			CircularTileSearch(&lakeCenter, RIVER_OFFSET_DESERT_DISTANCE, RiverModifyDesertZone, nullptr);
+			CircularTileSearch(&lakeCenter, _settings_game.game_creation.river_tropics_width, RiverModifyDesertZone, nullptr);
 			lakeCenter = end;
 			uint range = RandomRange(8) + 3;
 			CircularTileSearch(&lakeCenter, range, MakeLake, &height);
