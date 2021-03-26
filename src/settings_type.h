@@ -380,6 +380,7 @@ struct GameCreationSettings {
 	uint8  lake_size;                        ///< how large can lakes get?
 	bool   lakes_allowed_in_deserts;         ///< are lakes allowed in deserts?
 
+	uint8  amount_of_rocks;                  ///< the amoutn of rocks
 };
 
 /** Settings related to construction in-game */
