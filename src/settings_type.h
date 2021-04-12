@@ -129,6 +129,7 @@ struct GUISettings : public TimeSettings {
 	uint8  window_soft_limit;                ///< soft limit of maximum number of non-stickied non-vital windows (0 = no limit)
 	ZoomLevel zoom_min;                      ///< minimum zoom out level
 	ZoomLevel zoom_max;                      ///< maximum zoom out level
+	ZoomLevel sprite_zoom_min;               ///< maximum zoom level at which higher-resolution alternative sprites will be used (if available) instead of scaling a lower resolution sprite
 	byte   autosave;                         ///< how often should we do autosaves?
 	bool   threaded_saves;                   ///< should we do threaded saves?
 	bool   keep_all_autosave;                ///< name the autosave in a different way
@@ -372,14 +373,15 @@ struct GameCreationSettings {
 	uint16 custom_town_number;               ///< manually entered number of towns
 	byte   variety;                          ///< variety level applied to TGP
 	byte   custom_sea_level;                 ///< manually entered percentage of water in the map
-	uint8  min_river_length;                 ///< the minimum river length
-	uint8  river_route_random;               ///< the amount of randomicity for the route finding
+	byte   min_river_length;                 ///< the minimum river length
+	byte   river_route_random;               ///< the amount of randomicity for the route finding
 	byte   amount_of_rivers;                 ///< the amount of rivers
 	bool   rivers_top_of_hill;               ///< do rivers require starting near the tops of hills?
 	uint8  river_tropics_width;              ///< the configured width of tropics around rivers
 	uint8  lake_size;                        ///< how large can lakes get?
 	bool   lakes_allowed_in_deserts;         ///< are lakes allowed in deserts?
-
+	uint8  amount_of_rocks;                  ///< the amount of rocks
+	uint8  height_affects_rocks;             ///< the affect that map height has on rocks
 };
 
 /** Settings related to construction in-game */
@@ -606,6 +608,17 @@ struct EconomySettings {
 	bool   multiple_industry_per_town;       ///< allow many industries of the same type per town
 	int8   town_growth_rate;                 ///< town growth rate
 	uint8  town_growth_cargo_transported;    ///< percentage of town growth rate which depends on proportion of transported cargo in the last month
+	bool   town_zone_calc_mode;              ///< calc mode for town zones
+	uint16 town_zone_0_mult;                 ///< multiplier for the size of town zone 0
+	uint16 town_zone_1_mult;                 ///< multiplier for the size of town zone 1
+	uint16 town_zone_2_mult;                 ///< multiplier for the size of town zone 2
+	uint16 town_zone_3_mult;                 ///< multiplier for the size of town zone 3
+	uint16 town_zone_4_mult;                 ///< multiplier for the size of town zone 4
+	uint16 city_zone_0_mult;                 ///< multiplier for the size of city zone 0
+	uint16 city_zone_1_mult;                 ///< multiplier for the size of city zone 1
+	uint16 city_zone_2_mult;                 ///< multiplier for the size of city zone 2
+	uint16 city_zone_3_mult;                 ///< multiplier for the size of city zone 3
+	uint16 city_zone_4_mult;                 ///< multiplier for the size of city zone 4
 	uint8  larger_towns;                     ///< the number of cities to build. These start off larger and grow twice as fast
 	uint8  initial_city_size;                ///< multiplier for the initial size of the cities compared to towns
 	TownLayout town_layout;                  ///< select town layout, @see TownLayout
