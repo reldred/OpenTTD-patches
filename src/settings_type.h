@@ -389,6 +389,7 @@ struct GameCreationSettings {
 	byte   se_flat_world_height;             ///< land height a flat world gets in SE
 	byte   town_name;                        ///< the town name generator used for town names
 	byte   landscape;                        ///< the landscape we're currently in
+	byte   landscapegentype;                 ///< the landscape generation settings we're going to use
 	byte   water_borders;                    ///< bitset of the borders that are water
 	uint16 custom_town_number;               ///< manually entered number of towns
 	byte   variety;                          ///< variety level applied to TGP

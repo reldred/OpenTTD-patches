@@ -2035,6 +2035,7 @@ static SettingsContainer &GetSettingsTree()
 				rivers->Add(new SettingEntry("game_creation.lakes_allowed_in_deserts"));
 			}
 			genworld->Add(new SettingEntry("game_creation.landscape"));
+			genworld->Add(new SettingEntry("game_creation.landscapegentype"));
 			genworld->Add(new SettingEntry("game_creation.land_generator"));
 			genworld->Add(new SettingEntry("difficulty.terrain_type"));
 			genworld->Add(new SettingEntry("game_creation.tgen_smoothness"));
