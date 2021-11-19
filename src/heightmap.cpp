@@ -533,7 +533,7 @@ void LoadHeightmap(DetailedFileType dft, const char *filename)
 	GrayscaleToMapHeights(x, y, map);
 	free(map);
 
-	FixSlopes();
+	/*FixSlopes();*/
 	MarkWholeScreenDirty();
 }
 
@@ -550,6 +550,6 @@ void FlatEmptyWorld(byte tile_height)
 		}
 	}
 
-	FixSlopes();
+	/*FixSlopes();*/
 	MarkWholeScreenDirty();
 }

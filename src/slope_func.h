@@ -98,7 +98,7 @@ static inline bool IsSlopeWithOneCornerRaised(Slope s)
  */
 static inline Slope SlopeWithOneCornerRaised(Corner corner)
 {
-	assert(IsValidCorner(corner));
+	/*assert(IsValidCorner(corner))*/;
 	return (Slope)(1 << corner);
 }
 
@@ -134,7 +134,7 @@ static inline Corner GetHighestSlopeCorner(Slope s)
 		case SLOPE_STEEP_E: return CORNER_E;
 		case SLOPE_N:
 		case SLOPE_STEEP_N: return CORNER_N;
-		default: NOT_REACHED();
+		default: /*NOT_REACHED()*/;
 	}
 }
 
@@ -260,7 +260,7 @@ static inline Slope InclinedSlope(DiagDirection dir)
 		case DIAGDIR_SE: return SLOPE_SE;
 		case DIAGDIR_SW: return SLOPE_SW;
 		case DIAGDIR_NW: return SLOPE_NW;
-		default: NOT_REACHED();
+		default: /*NOT_REACHED()*/;
 	}
 }
 

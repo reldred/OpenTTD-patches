@@ -1602,7 +1602,7 @@ void GenerateLandscape(byte mode)
 
 	/* Do not call IncreaseGeneratingWorldProgress() before FixSlopes(),
 	 * it allows screen redraw. Drawing of broken slopes crashes the game */
-	FixSlopes();
+	/*FixSlopes();*/
 	MarkWholeScreenDirty();
 	IncreaseGeneratingWorldProgress(GWP_LANDSCAPE);
 

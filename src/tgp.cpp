@@ -852,7 +852,7 @@ static void HeightMapSmoothCoasts(uint8 water_borders)
  */
 static void HeightMapSmoothSlopes(height_t dh_max)
 {
-	for (int y = 0; y <= (int)_height_map.size_y; y++) {
+/*	for (int y = 0; y <= (int)_height_map.size_y; y++) {
 		for (int x = 0; x <= (int)_height_map.size_x; x++) {
 			height_t h_max = std::min(_height_map.height(x > 0 ? x - 1 : x, y), _height_map.height(x, y > 0 ? y - 1 : y)) + dh_max;
 			if (_height_map.height(x, y) > h_max) _height_map.height(x, y) = h_max;
@@ -863,7 +863,7 @@ static void HeightMapSmoothSlopes(height_t dh_max)
 			height_t h_max = std::min(_height_map.height(x < _height_map.size_x ? x + 1 : x, y), _height_map.height(x, y < _height_map.size_y ? y + 1 : y)) + dh_max;
 			if (_height_map.height(x, y) > h_max) _height_map.height(x, y) = h_max;
 		}
-	}
+	}*/
 }
 
 /**
